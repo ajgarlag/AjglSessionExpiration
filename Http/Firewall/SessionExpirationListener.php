@@ -45,6 +45,7 @@ class SessionExpirationListener implements ListenerInterface
      * Handles expired sessions.
      *
      * @param  GetResponseEvent  $event A GetResponseEvent instance
+     *
      * @throws SessionExpiredException If the session has expired
      */
     public function handle(GetResponseEvent $event)
@@ -80,8 +81,8 @@ class SessionExpirationListener implements ListenerInterface
      */
     private function setMaxIdleTime($maxIdleTime)
     {
-        if ($maxIdleTime > ini_get('session.gc_maxlifetime')) {
-            trigger_error("Max idle time should not be greater than 'session.gc_maxlifetime'", \E_USER_WARNING);
+        if ($maxIdleTime > ini_get('session.gc_maxlifetime') && null !== $this->logger) {
+            $this->logger->warning(sprintf("Max idle time should not be greater than 'session.gc_maxlifetime"));
         }
         $this->maxIdleTime = (int) $maxIdleTime;
     }
