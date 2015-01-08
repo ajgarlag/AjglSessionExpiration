@@ -14,7 +14,7 @@ event of your application HTTP kernel.
 Symfony Bundle
 --------------
 
-If you need to integrate these library into your Symfony Framework app, you
+If you need to integrate this library into your Symfony Framework app, you
 can install the [AjglSessionExpirationBundle](https://github.com/ajgarlag/AjglSessionExpirationBundle)
 
 
