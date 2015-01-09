@@ -4,6 +4,14 @@ AjglSessionExpiration
 The AjglSessionExpiration component allows you to block idle Symfony sessions.
 
 
+PR Reference
+------------
+
+This feature has been submitted to the Symfony project in the [PR #12807](https://github.com/symfony/symfony/pull/12807).
+
+All your feedback and contributions to this repository will help me to improve the referenced PR.
+
+
 Usage
 -----
 
