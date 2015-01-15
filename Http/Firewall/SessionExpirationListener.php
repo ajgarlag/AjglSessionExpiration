@@ -44,7 +44,7 @@ class SessionExpirationListener implements ListenerInterface
     /**
      * Handles expired sessions.
      *
-     * @param  GetResponseEvent  $event A GetResponseEvent instance
+     * @param GetResponseEvent $event A GetResponseEvent instance
      *
      * @throws SessionExpiredException If the session has expired
      */
@@ -65,8 +65,7 @@ class SessionExpirationListener implements ListenerInterface
             $this->logger->info(sprintf("Expired session detected for user named '%s'", $token->getUsername()));
         }
 
-        $this->securityContext->setToken(null);
-        $session->invalidate();
+        $this->removeSessionData($session);
 
         if (null === $this->targetUrl) {
             throw new SessionExpiredException();
@@ -88,12 +87,23 @@ class SessionExpirationListener implements ListenerInterface
     }
 
     /**
-     * Checks if the given session has expired.
+     * Removes session data.
      *
      * @param SessionInterface $session
+     */
+    protected function removeSessionData(SessionInterface $session)
+    {
+        $this->securityContext->setToken(null);
+        $session->invalidate();
+    }
+
+    /**
+     * Checks if the given session has expired.
+     *
+     * @param  SessionInterface $session
      * @return bool
      */
-    private function hasSessionExpired(SessionInterface $session)
+    protected function hasSessionExpired(SessionInterface $session)
     {
         return time() - $session->getMetadataBag()->getLastUsed() >= $this->maxIdleTime;
     }
