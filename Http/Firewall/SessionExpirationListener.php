@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the AJ General Libraries
+ * This file is part of the AJGL packages
  *
- * Copyright (C) 2010-2014 Antonio J. García Lagar <aj@garcialagar.es>
+ * Copyright (C) Antonio J. García Lagar <aj@garcialagar.es>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,13 +11,13 @@
 
 namespace Ajgl\Security\Http\Firewall;
 
+use Ajgl\Security\Core\Exception\SessionExpiredException;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
-use Symfony\Component\Security\Http\HttpUtils;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Http\Firewall\ListenerInterface;
-use Ajgl\Security\Core\Exception\SessionExpiredException;
+use Symfony\Component\Security\Http\HttpUtils;
 
 /**
  * SessionExpirationListener controls idle sessions
