@@ -9,17 +9,13 @@
 
     <testsuites>
         <testsuite name="Ajgl Session Expiration Test Suite">
-            <directory>./Http/Tests/</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./vendor</directory>
-                <directory>./Http/Tests</directory>
-            </exclude>
+            <directory>./src</directory>
         </whitelist>
     </filter>
 </phpunit>

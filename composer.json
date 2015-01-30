@@ -14,7 +14,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Ajgl\\Security\\": ""
+            "Ajgl\\Security\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ajgl\\Security\\Http\\Tests\\": "tests/Http/Tests/"
         }
     },
     "require": {
