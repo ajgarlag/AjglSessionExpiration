@@ -12,15 +12,15 @@
 namespace Ajgl\Security\Http\Firewall;
 
 use Ajgl\Security\Core\Exception\SessionExpiredException;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Http\Firewall\ListenerInterface;
 use Symfony\Component\Security\Http\HttpUtils;
 
 /**
- * SessionExpirationListener controls idle sessions
+ * SessionExpirationListener controls idle sessions.
  *
  * @author Antonio J. García Lagar <aj@garcialagar.es>
  */
@@ -100,7 +100,8 @@ class SessionExpirationListener implements ListenerInterface
     /**
      * Checks if the given session has expired.
      *
-     * @param  SessionInterface $session
+     * @param SessionInterface $session
+     *
      * @return bool
      */
     protected function hasSessionExpired(SessionInterface $session)
